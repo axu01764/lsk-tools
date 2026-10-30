@@ -12,7 +12,7 @@ Run `npm install`, then `npm run dev -- --host 127.0.0.1 --port 4173 --strictPor
 
 ## Site settings
 
-Homepage partner entries are grouped into two-row columns and use the shared sliding rail: three columns on desktop, two below1000px. More entries than fit rotate automatically using the configured motion timing; Pause/Resume, keyboard navigation and touch swiping remain available. Empty partner data keeps the existing invitation without sample logos. The captured source repeats its1000px breakpoint with conflicting row counts, so mobile row parity remains a live-reference audit item.
+Homepage partner entries use the shared sliding rail: three columns with two rows on desktop, two columns with one row below1000px. More entries than fit rotate automatically using the configured motion timing; Pause/Resume, keyboard navigation and touch swiping remain available. Empty partner data keeps the existing invitation without sample logos. The source's Slick registerBreakpoints implementation overwrites duplicate breakpoint settings, so the second1000px rule (rows:1) is effective. Resizing across that breakpoint regroups the entries and restarts the rail without retaining an invalid slide position.
 
 Edit `src/site-config.json`:
 
