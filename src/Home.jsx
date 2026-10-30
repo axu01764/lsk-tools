@@ -180,18 +180,23 @@ function Header() {
               }}/>
       )}
       {search && (
-        <Modal title="Search products" close={() => Q(false)} returnFocus={searchTrigger}>
+        <Modal title="Search products" close={() => Q(false)} returnFocus={searchTrigger} className="search-dialog">
           <section className="search-panel">
-            <h2>Find your tool</h2>
+            <form action="/product/" method="get" className="search-form">
             <label htmlFor="search">Search products</label>
             <input
               autoFocus
               id="search"
+              type="search"
+              name="q"
               value={q}
               onChange={(e) => F(e.target.value)}
-              placeholder="Drill, wrench, 21V…"
+              onKeyDown={event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();Q(false);}}}
+              placeholder="Search..."
             />
-            <div aria-live="polite">
+            <button type="submit" aria-label="Search catalogue"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="m15 15 7 7"/></svg></button>
+            </form>
+            {q.trim() && <div className="search-results" aria-live="polite">
               {products
                 .filter(p => matchesProduct(p,q))
                 .map((p) => (
@@ -201,7 +206,7 @@ function Header() {
                   </a>
                 ))}
               {!products.some(p => matchesProduct(p,q)) && <p>No matches. Try “drill”, “21V” or “550 Nm”.</p>}
-            </div>
+            </div>}
           </section>
         </Modal>
       )}
