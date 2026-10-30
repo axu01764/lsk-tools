@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.vercel/
+reports/
+.env
+.env.*
+*.log
+*-preview.html
+src/*-preview.jsx
+product-image-review.html
+design-qa.md
+IMPLEMENTATION-history.md
+AGENTS.md

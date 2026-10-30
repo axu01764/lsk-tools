@@ -1,0 +1,34 @@
+{
+  "brand": { "name": "LSK Tools", "logo": "/media/logo-transparent.png" },
+  "publicUrl": "",
+  "innerBannerBackground": "/media/hero-workshop-v1.png",
+  "motion": {
+    "autoplayMs": 5000,
+    "transitionMs": 1500,
+    "stickyAfterPx": 150,
+    "aboutParallaxSpeed": 0.5,
+    "revealThreshold": 0.1,
+    "productMaskMs": 1000,
+    "productTextDelayMs": 300,
+    "productImageDelayMs": 600
+  },
+  "hero": [
+    {
+      "title": "Cordless Drill",
+      "productId": "cordless-impact-drill-21v-50nm",
+      "description": "Power tools for your next project. Explore the LSK Tools cordless range."
+    },
+    {
+      "title": "Impact Wrench",
+      "productId": "brushless-wrench-21v-550nm",
+      "description": "Explore cordless impact wrenches. Find the specifications for your next project."
+    }
+  ],
+  "heroBackground": "/media/hero-workshop-v1.png",
+  "companyStats": [],
+  "certificates": [],
+  "news": [],
+  "partners": [],
+  "contact": { "mode": "download", "endpoint": null, "address": "", "departments": [], "mapEmbedUrl": "" },
+  "video": { "src": "/media/factory.mp4", "poster": "/media/factory-gallery/frame-20.jpg" }
+}

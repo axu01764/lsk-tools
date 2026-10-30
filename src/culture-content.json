@@ -1,0 +1,13 @@
+{
+  "heading": "Get to know LSK Tools",
+  "services": [
+    {"title":"Intelligent production","body":"Take a closer look at the workshop through our factory introduction and discuss your production requirements.","href":"/capacity/intelligent-production/smart-factory.html"},
+    {"title":"Quality control","body":"Review product specifications and tell us the inspection criteria and documentation your order requires.","href":"/capacity/strict-quality-control/"}
+  ],
+  "history": [],
+  "activities": [
+    {"id":"people","label":"Our people","description":"Team stories will be added here when published.","images":[]},
+    {"id":"training","label":"Training","description":"Training updates will be added here when published.","images":[]},
+    {"id":"activities","label":"Employee activities","description":"Company activities will be added here when published.","images":[]}
+  ]
+}

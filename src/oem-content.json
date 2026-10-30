@@ -1,0 +1,15 @@
+{
+  "title": "Customized",
+  "intro": "Build your next tool range with LSK Tools. Start with the products in our catalogue and share your requirements for branding, packaging and performance. Contact us to confirm the available options, quantities and schedule for your project.",
+  "sections": [
+    {"id":"product-selection","title":"Select your product platform","body":"Compare cordless drills and impact wrenches by voltage, torque and operating speed. Send us the models and applications you have in mind so we can discuss a suitable starting point.","productId":"cordless-impact-drill-21v-50nm","href":"/product/","linkLabel":"EXPLORE PRODUCTS"},
+    {"id":"branding","title":"Define your brand requirements","body":"Share your logo artwork, preferred colours and packaging brief. We can discuss which requests are available for your selected models before you finalise the specification.","productId":"cordless-drill-12v-30nm","href":"/contact/","linkLabel":"DISCUSS BRANDING"},
+    {"id":"workshop","title":"Take a closer look at the workshop","body":"View scenes from the factory introduction supplied by LSK Tools. Tell us the production information and sample checks you need for your project.","image":"/media/factory-gallery/frame-20.jpg","imageAlt":"Workshop scene from the LSK Tools factory video","href":"/factory/","linkLabel":"VIEW THE FACTORY"},
+    {"id":"specification","title":"Confirm the details before ordering","body":"Bring together your selected products, quantities, packaging requirements and inspection criteria. Include your target market and timing in the enquiry so the requirements can be reviewed together.","productId":"brushless-wrench-21v-550nm","href":"/contact/","linkLabel":"PREPARE AN ENQUIRY"}
+  ],
+  "quality": [
+    {"id":"materials","title":"Materials & components","body":"Specify the materials and component requirements that matter to your application. Request confirmation for your selected model."},
+    {"id":"production","title":"Production requirements","body":"Discuss samples, assembly requirements and the checks needed for your order before confirming production details."},
+    {"id":"inspection","title":"Inspection & documentation","body":"Share your inspection criteria and required documents. Ask us to confirm availability for your product and destination market."}
+  ]
+}

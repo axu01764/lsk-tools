@@ -1,0 +1,35 @@
+import {readdirSync,readFileSync,existsSync,mkdirSync,writeFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {resolve} from 'node:path';
+import {resolveRoute} from '../src/routes.js';
+import {productCategories,productCategoryPath} from '../src/product-categories.js';
+import {capacityGroups} from '../src/capacity-content.js';
+import {inspectPublicUrl} from '../src/public-url.js';
+const root=fileURLToPath(new URL('../',import.meta.url));
+const read=name=>JSON.parse(readFileSync(resolve(root,'src',name),'utf8'));
+const products=read('products.json'),site=read('site-config.json');
+const assets=new Set(),routes=new Set(),errors=[];
+const publicUrlError=inspectPublicUrl(site.publicUrl).error;
+if(publicUrlError)errors.push(publicUrlError);
+function visit(value,key=''){
+  if(Array.isArray(value))return value.forEach(item=>visit(item,key));
+  if(value&&typeof value==='object')return Object.entries(value).forEach(([name,item])=>visit(item,name));
+  if(typeof value!=='string')return;
+  if(/^\/(media|design)\//.test(value))assets.add(value);
+  else if(['href','path'].includes(key)&&value.startsWith('/')&&!value.startsWith('//'))routes.add(value.split(/[?#]/)[0]);
+}
+for(const name of readdirSync(resolve(root,'src')).filter(name=>name.endsWith('.json')))visit(read(name));
+visit(capacityGroups);
+for(const item of products)routes.add('/product/'+item.id+'/');
+const categoryPaths=productCategories(products).map(productCategoryPath);
+categoryPaths.forEach(path=>{routes.add(path);routes.add(path+'page/2/');});
+for(const path of assets)if(!existsSync(resolve(root,'public','.'+path)))errors.push('Missing asset: '+path);
+for(const path of routes)if(resolveRoute(path,products,site.news).kind==='not-found')errors.push('Unresolved route: '+path);
+if(new Set(products.map(item=>item.id)).size!==products.length)errors.push('Duplicate product IDs');
+if(new Set(categoryPaths).size!==categoryPaths.length)errors.push('Category URL collision');
+for(const categoryPath of categoryPaths)if(products.some(item=>'/product/'+item.id+'/'===categoryPath))errors.push('Product/category URL collision: '+categoryPath);
+const report={generatedAt:new Date().toISOString(),scope:'Configured JSON assets and href/path links, capacity data, product and category routes. Not a browser/visual audit or check of arbitrary JSX/CSS assets.',products:products.length,categories:categoryPaths,assetsChecked:assets.size,routesChecked:routes.size,errors};
+mkdirSync(resolve(root,'reports'),{recursive:true});
+writeFileSync(resolve(root,'reports/content-audit.json'),JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify(report,null,2));
+if(errors.length)process.exitCode=1;

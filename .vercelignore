@@ -1,0 +1,10 @@
+.git
+node_modules
+dist
+reports
+*-preview.html
+src/*-preview.jsx
+product-image-review.html
+design-qa.md
+IMPLEMENTATION-history.md
+AGENTS.md

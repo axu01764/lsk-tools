@@ -1,0 +1,52 @@
+# LSK Tools — English frontend template
+
+This is a runnable **handoff candidate**, not the final visual-fidelity acceptance. The yellow paint design, responsive page templates, local factory video and three PDF-derived sample products are included. Product cutouts use the clear-v3 transparent AI images. Complete source-to-local visual comparison remains open.
+
+## Run or rebuild
+
+Use Node.js 22.12+ (or Node 24) and npm. From this folder:
+
+```sh
+npm ci
+npm run dev -- --host 127.0.0.1 --port 4173
+```
+
+For the included production build, after installing dependencies:
+
+```sh
+npm run preview -- --host 127.0.0.1 --port 4174
+```
+
+Open the printed local URL. Do not open index.html by double-clicking; the app needs HTTP and history fallback for direct nested URLs.
+
+```sh
+npm test
+npm run audit:content
+npm run audit:routes
+npm run build
+```
+
+While the preview is running, `npm run audit:build` verifies every served production file against disk. Change its base URL with `npm run audit:build -- http://127.0.0.1:YOUR_PORT/` if needed. Tests and audits have different scopes; none alone proves visual fidelity.
+
+## Replace content
+
+1. Edit `src/site-config.json` for slides, timing, contact information, news, FAQ, certificates and partners. Keep the supplied empty company-data arrays empty until real records are available.
+2. Edit `src/products.json`. Preserve unique product IDs and valid hero productId references. Categories and category routes derive from this file. Replace image/gallery URLs with local `/media/...` paths. Transparent PNGs preserve the silhouette over yellow backgrounds.
+3. Replace `public/media/logo-transparent.png` or update `brand.logo` to a new path. Review visible LSK Tools text in JSX when rebranding—changing the logo name alone does not change all copy.
+4. Edit `src/factory-gallery.json`, `src/about-content.json`, `src/culture-content.json`, `src/oem-content.json`, `src/privacy-content.json` and `src/capacity-content.js` for the corresponding pages. Video and poster paths are in site-config.json.
+5. Keep `public/media/paint.png` and `public/design` for the yellow paint and decorative styling. Run content audit and rebuild after replacements, then check desktop and mobile interactions.
+
+The fuller `CONFIGURATION.md` includes authoring notes about QA preview pages and historical reports. Those fixtures/reports are deliberately absent from this portable package; they remain in the original workspace. The packaged route inventory contains URL metadata only.
+
+## Behavior and content limits
+
+- Enquiry forms download a JSON enquiry locally. They do not send email or contact a backend. An integration must replace that behavior before claiming online delivery.
+- Three real PDF specification records are supplied; other manufacturer products and articles were not imported as LSK records. Galleries, news and other optional sections accept configured records.
+- Product PNGs are AI-enhanced visual assets, not engineering evidence for every small geometric detail. Specifications come from the supplied catalogue. Factory images are extracted video frames and retain source subtitles.
+- No API credentials are required to run this static frontend. Do not put credentials in browser code or JSON configuration.
+
+## Hosting and package integrity
+
+`dist/client` is the static site. A host must fall back to index.html for frontend routes while serving actual assets normally. `dist/server/index.js` and `dist/.openai/hosting.json` are the existing Sites adapter; they are preserved by the build. A local preview does not prove a remote deployment.
+
+`PACKAGE-MANIFEST.json` records SHA-256 and size for each packaged file except itself. Source, local assets, lockfile, tests and built output are included; node_modules, development preview fixtures, original PDFs, historical browser captures and credentials are excluded. Keep the original workspace for provenance and source comparison.

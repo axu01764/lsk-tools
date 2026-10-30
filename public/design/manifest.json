@@ -1,0 +1,131 @@
+[
+  {
+    "path": "fonts/Coalition.woff2",
+    "source": "https://www.jinglitools.com/template/en/fonts/Coalition.woff2",
+    "bytes": 408624
+  },
+  {
+    "path": "fonts/Poppins-Light.woff2",
+    "source": "https://www.jinglitools.com/template/en/fonts/Poppins-Light.woff2",
+    "bytes": 85408
+  },
+  {
+    "path": "fonts/Poppins-Regular.woff2",
+    "source": "https://www.jinglitools.com/template/en/fonts/Poppins-Regular.woff2",
+    "bytes": 92052
+  },
+  {
+    "path": "fonts/Poppins-Medium.woff2",
+    "source": "https://www.jinglitools.com/template/en/fonts/Poppins-Medium.woff2",
+    "bytes": 95492
+  },
+  {
+    "path": "fonts/Poppins-bold.woff2",
+    "source": "https://www.jinglitools.com/template/en/fonts/Poppins-bold.woff2",
+    "bytes": 91864
+  },
+  {
+    "path": "images/icon-more.png",
+    "source": "https://www.jinglitools.com/template/en/images/icon-more.png",
+    "bytes": 341
+  },
+  {
+    "path": "images/icon-5-link.png",
+    "source": "https://www.jinglitools.com/template/en/images/icon-5-link.png",
+    "bytes": 240
+  },
+  {
+    "path": "images/icon-text-line.png",
+    "source": "https://www.jinglitools.com/template/en/images/icon-text-line.png",
+    "bytes": 260
+  },
+  {
+    "path": "images/banner-btn-l.png",
+    "source": "https://www.jinglitools.com/template/en/images/banner-btn-l.png",
+    "bytes": 194
+  },
+  {
+    "path": "images/banner-btn-r.png",
+    "source": "https://www.jinglitools.com/template/en/images/banner-btn-r.png",
+    "bytes": 194
+  },
+  {
+    "path": "images/icon-search-white.png",
+    "source": "https://www.jinglitools.com/template/en/images/icon-search-white.png",
+    "bytes": 333
+  },
+  {
+    "path": "images/init-2-mask.png",
+    "source": "https://www.jinglitools.com/template/en/images/init-2-mask.png",
+    "bytes": 8900
+  },
+  {
+    "path": "images/init-2-bg.png",
+    "source": "https://www.jinglitools.com/template/en/images/init-2-bg.png",
+    "bytes": 711878
+  },
+  {
+    "path": "images/init-1-bg2.jpg",
+    "source": "https://www.jinglitools.com/template/en/images/init-1-bg2.jpg",
+    "bytes": 143589
+  },
+  {
+    "path": "images/init-4-bg.jpg",
+    "source": "https://www.jinglitools.com/template/en/images/init-4-bg.jpg",
+    "bytes": 227828
+  },
+  {
+    "path": "images/f-bg.jpg",
+    "source": "https://www.jinglitools.com/template/en/images/f-bg.jpg",
+    "bytes": 70630
+  },
+  {
+    "path": "images/icon-1-1.png",
+    "source": "https://www.jinglitools.com/template/en/images/icon-1-1.png",
+    "bytes": 1259
+  },
+  {
+    "path": "images/icon-1-2.png",
+    "error": "Command '['curl.exe', '-sS', '-L', '--fail', '--max-time', '45', 'https://www.jinglitools.com/template/en/images/icon-1-2.png', '-o', 'C:\\\\Users\\\\axu01\\\\Desktop\\\\drillwebsite\\\\assets\\\\source-design\\\\images\\\\icon-1-2.png']' returned non-zero exit status 28."
+  },
+  {
+    "path": "images/icon-1-3.png",
+    "source": "https://www.jinglitools.com/template/en/images/icon-1-3.png",
+    "bytes": 2086
+  },
+  {
+    "path": "images/icon-1-4.png",
+    "source": "https://www.jinglitools.com/template/en/images/icon-1-4.png",
+    "bytes": 1505
+  },
+  {
+    "path": "images/int-4-1.png",
+    "source": "https://www.jinglitools.com/template/en/images/int-4-1.png",
+    "bytes": 1767
+  },
+  {
+    "path": "images/int-4-2.png",
+    "source": "https://www.jinglitools.com/template/en/images/int-4-2.png",
+    "bytes": 1749
+  },
+  {
+    "path": "images/int-4-3.png",
+    "source": "https://www.jinglitools.com/template/en/images/int-4-3.png",
+    "bytes": 2379
+  },
+  {
+    "path": "images/int-4-4.png",
+    "source": "https://www.jinglitools.com/template/en/images/int-4-4.png",
+    "bytes": 5427
+  },
+  {
+    "path": "images/int-4-5.png",
+    "source": "https://www.jinglitools.com/template/en/images/int-4-5.png",
+    "bytes": 2157
+  },
+  {
+    "path": "images/int-4-6.png",
+    "source": "https://www.jinglitools.com/template/en/images/int-4-6.png",
+    "bytes": 1824
+  }
+]

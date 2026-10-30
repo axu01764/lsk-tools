@@ -1,0 +1,26 @@
+{
+  "title": "Power tools for your next project",
+  "intro": [
+    "Explore the LSK Tools range of cordless drills and impact wrenches. Start with your application, compare the catalogue specifications and tell us which models you need.",
+    "Our product catalogue and workshop video give you a closer look at the tools. For an order enquiry, include the model, quantity, destination and any packaging or documentation requirements so that the details can be confirmed."
+  ],
+  "image": "/media/factory-gallery/frame-20.jpg",
+  "imageAlt": "Workshop shown in the supplied LSK Tools factory video",
+  "badge": "LSK Tools",
+  "videoHeading": "A closer look at our workshop",
+  "videoText": "Watch the LSK Tools factory video, then explore the product range and discuss your requirements with us.",
+  "services": [
+    {"icon":"⚙","title":"Product selection","text":"Compare cordless drills and impact wrenches by voltage, torque and intended application.","href":"/product/"},
+    {"icon":"◇","title":"Catalogue specifications","text":"Review model details from the product catalogue before preparing your enquiry.","href":"/product/"},
+    {"icon":"▦","title":"Workshop view","text":"See the workshop and tools in our factory video and image gallery.","href":"/factory/"},
+    {"icon":"◎","title":"Order requirements","text":"Include your preferred model, order quantity and destination when requesting a quotation.","href":"/contact/"},
+    {"icon":"✓","title":"Product documentation","text":"Request the documents and model-specific information required for your market.","href":"/capacity/strict-quality-control/international-certification.html"},
+    {"icon":"✦","title":"Branding & packaging","text":"Discuss branding, packaging and configuration requirements for your product range.","href":"/oem-odm/"}
+  ],
+  "developmentHeading": "Build your next product range",
+  "developmentText": "Bring together the model specifications, branding and packaging details for your next order. Talk to LSK Tools about your requirements and confirm the available options before proceeding.",
+  "developmentImages": [
+    {"src":"/media/factory-gallery/frame-28.jpg","alt":"Tools shown in the LSK Tools workshop video"},
+    {"src":"/media/factory-gallery/frame-36.jpg","alt":"Second view of tools from the LSK Tools factory video"}
+  ]
+}

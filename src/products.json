@@ -1,0 +1,59 @@
+[
+  {
+    "id": "cordless-drill-12v-30nm",
+    "name": "12V Cordless Drill",
+    "category": "Cordless Drills",
+    "voltage": "12V",
+    "torque": "30 N·m",
+    "chuck": "10 mm",
+    "speed": "0–400 / 0–1250 rpm",
+    "source": {
+      "file": "files/产品手册(1).pdf",
+      "page": 36,
+      "position": "top left",
+      "extractedImage": "reference/lsk/产品手册(1)/page-036-image-44.jpg"
+    },
+    "manufacturerModel": null,
+    "imageStatus": "generated cutout; catalogue mapping verified",
+    "image": "/media/compact12-clear-v3.png",
+    "imageAlt": "12V Cordless Drill — yellow and black tool"
+  },
+  {
+    "id": "cordless-impact-drill-21v-50nm",
+    "name": "21V Cordless Impact Drill",
+    "category": "Cordless Drills",
+    "voltage": "21V",
+    "torque": "50 N·m",
+    "chuck": "10 mm",
+    "speed": "0–400 / 0–1250 rpm",
+    "source": {
+      "file": "files/产品手册(1).pdf",
+      "page": 36,
+      "position": "top right",
+      "extractedImage": "reference/lsk/产品手册(1)/page-036-image-35.jpg"
+    },
+    "manufacturerModel": null,
+    "imageStatus": "generated cutout; catalogue mapping verified",
+    "image": "/media/impact21-clear-v3.png",
+    "imageAlt": "21V Cordless Impact Drill — yellow and black tool"
+  },
+  {
+    "id": "brushless-wrench-21v-550nm",
+    "name": "21V Brushless Impact Wrench",
+    "category": "Impact Wrenches",
+    "voltage": "21V",
+    "torque": "550 N·m",
+    "speed": "0–2800 rpm",
+    "impactRate": "0–3000 impacts/min",
+    "source": {
+      "file": "files/产品手册(1).pdf",
+      "page": 37,
+      "position": "second row left",
+      "extractedImage": "reference/lsk/产品手册(1)/page-037-image-38.jpg"
+    },
+    "manufacturerModel": null,
+    "imageStatus": "generated cutout; catalogue mapping verified",
+    "image": "/media/wrench550-clear-v3.png",
+    "imageAlt": "21V Brushless Impact Wrench — yellow and black tool"
+  }
+]
