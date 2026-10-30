@@ -1829,7 +1829,7 @@ dialog.navigation-drawer::backdrop{background:#0003;}.navigation-drawer.is-closi
   .about .factory>img{visibility:visible;object-position:center 30%;}
   .features{padding:50px 5%;}
   .features .feature-layout{display:block;}
-  .features .feature{margin-bottom:30px;}
+  .features .feature,.features .feature:last-child{margin-bottom:30px;}
   .features .section-heading{margin-bottom:35px;}
   .updates{display:block;padding:50px 5%;}
   .updates .news-rail,.updates .news-empty{margin-top:20px;}
@@ -1924,3 +1924,30 @@ footer .footer-connect{min-width:0;text-align:center;padding-left:15px;}
   .product-carousel .rail-pause{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);margin:0;}
 }
 
+
+/* Homepage advantages: source .int-4 layout and responsive typography. */
+.features{padding:95px 5%;text-align:center;background-size:auto;}
+.features .section-heading{display:inline-block;text-align:right;margin-bottom:60px;}
+.features .section-heading em{margin-bottom:0;font-size:18px;line-height:32px;}
+.features .section-heading h2{font-style:italic;}
+.features .feature-layout{display:flex;gap:0;align-items:center;text-align:left;}
+.features .feature-layout>div{width:25%;flex:none;}
+.features .feature-product{display:block;flex:none;width:54%;padding-right:2%;margin-left:-4%;}
+.features .feature{margin-bottom:80px;}
+.features .feature:last-child{margin-bottom:0;}
+.features .feature h3{font-size:24px;line-height:44px;color:#3b3b3b;gap:.3em;text-transform:uppercase;}
+.features .feature-layout>div:last-child h3{text-transform:capitalize;}
+.features .feature p{font-size:16px;line-height:30px;font-weight:300;color:#898989;margin-top:1em;}
+@media(max-width:1800px){.features .feature h3{font-size:20px;line-height:36px;}.features .feature h3 img{width:50px;height:auto;}}
+@media(max-width:1450px){.features .feature{margin-bottom:40px;}.features .feature p{font-size:14px;line-height:28px;}}
+@media(max-width:1250px){.features .feature h3{font-size:16px;line-height:30px;}.features .feature h3 img{width:36px;height:auto;}}
+@media(max-width:1000px){
+  .features{padding:50px 5%;}
+  .features .feature-layout{display:block;}
+  .features .feature-layout>div{width:100%;}
+  .features .feature-product{display:none;}
+  .features .feature,.features .feature:last-child{margin-bottom:30px;}
+  .features .section-heading em{font-size:14px;line-height:28px;}
+}
+@media(max-width:700px){.features .section-heading{display:block;text-align:left;}}
+@media(max-width:500px){.features{padding-bottom:20px;}.features .section-heading{margin-bottom:30px;}}
