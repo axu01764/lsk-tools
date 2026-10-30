@@ -498,7 +498,7 @@ function Footer() {
 }
 export function News({ home = false, items = site.news }) {
   const entries = home ? items.slice(0, 6) : items;
-  const renderArticle = entry => <article key={entry.id}><time dateTime={entry.date}>{entry.date}</time><h3><a href={newsPath(entry)}>{entry.title}</a></h3><p>{entry.summary}</p><More href={newsPath(entry)}>Read article</More></article>;
+  const renderArticle = entry => <article key={entry.id}><time dateTime={entry.date}>{entry.date}</time><h3><a href={newsPath(entry)}>{entry.title}</a></h3><p>{entry.summary}</p>{home ? <a className="news-article-link" href={newsPath(entry)} aria-label={'Read article: '+entry.title}><Arrow/></a> : <More href={newsPath(entry)}>Read article</More>}</article>;
   return <section className={home ? 'updates news-module' : 'catalog news-module'}>
     <div className="news-heading"><em>Latest Updates</em><h2>What's <br/><strong>news</strong></h2>{home && <More href="/news/"/>}</div>
     {entries.length ? home ? <SlidingRail items={entries} label="company news" className="news-rail" render={renderArticle}/> : <div className="news-list">{entries.map(renderArticle)}</div> : <div className="news-list"><article className="news-empty"><h3>Stay connected with LSK Tools</h3><p>Company updates will appear here when they are published.</p><More href="/contact/">Contact us</More></article></div>}
