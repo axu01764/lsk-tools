@@ -1959,3 +1959,9 @@ footer .footer-connect{min-width:0;text-align:center;padding-left:15px;}
 .home-reveal-zoom.visible{animation-name:home-zoom-in;}
 @keyframes home-fade-up{from{opacity:0;transform:translate3d(0,100%,0);}to{opacity:1;transform:none;}}
 @keyframes home-zoom-in{from{opacity:0;transform:scale3d(.3,.3,.3);}50%{opacity:1;}to{opacity:1;transform:none;}}
+
+.home-play-reveal,.home-play-reveal.visible{transform:translate(-50%,-50%);}
+.home-play-reveal.visible{animation-name:home-play-zoom;}
+@keyframes home-play-zoom{from{opacity:0;transform:translate(-50%,-50%) scale(.3);}50%{opacity:1;}to{opacity:1;transform:translate(-50%,-50%);}}
+.more.home-reveal.visible{animation-fill-mode:backwards;}
+.more.home-reveal.visible:hover{transform:translateX(5px);}

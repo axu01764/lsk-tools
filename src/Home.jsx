@@ -44,8 +44,8 @@ const Logo = () => (
     <img src={site.brand.logo} alt={site.brand.name} />
   </a>
 );
-const More = ({ href, children = "READ MORE" }) => (
-  <a className="more" href={href}>
+const More = ({ href, children = "READ MORE", revealDelay }) => (
+  <a className={revealDelay ? "more reveal home-reveal" : "more"} style={revealDelay ? {'--reveal-delay':revealDelay} : undefined} href={href}>
     {children}
     <Arrow />
   </a>
@@ -312,16 +312,16 @@ function About() {
   return (
     <section ref={parallaxRef} className="about" style={{'--factory-poster': `url("${site.video.poster}")`}}>
       <div className="about-backdrop" aria-hidden="true" />
-      <div className="about-copy reveal">
-        <em>ABOUT LSK TOOLS</em>
-        <h2>
+      <div className="about-copy">
+        <em className="reveal home-reveal" style={{'--reveal-delay':'.3s'}}>ABOUT LSK TOOLS</em>
+        <h2 className="reveal home-reveal" style={{'--reveal-delay':'.4s'}}>
           <strong>Power for</strong>{" "}
           <br />
           your next{" "}
           <br />
           project
         </h2>
-        <p>
+        <p className="reveal home-reveal" style={{'--reveal-delay':'.5s'}}>
           Explore cordless drills and impact wrenches from LSK Tools. Compare
           product specifications, browse the catalogue and see our factory
           video.
@@ -331,7 +331,7 @@ function About() {
             {value:12,suffix:'V',label:'COMPACT DRILLS'},
             {value:21,suffix:'V',label:'CORDLESS RANGE'},
             {value:550,suffix:' N·m',label:'IMPACT WRENCH'},
-          ]).map(stat => <AnimatedFact key={stat.label} stat={stat}/>)}
+          ]).map((stat,index) => <AnimatedFact key={stat.label} stat={stat} revealDelay={(0.6+index/10).toFixed(1)+'s'}/>)}
         </div>
       </div>
       <button
@@ -341,9 +341,9 @@ function About() {
         onClick={() => V(true)}
       >
         <img src={site.video.poster} alt="LSK Tools factory video preview" />
-        <span className="play"><span className="play-ripple" aria-hidden="true" /></span>
+        <span className="play reveal home-reveal home-play-reveal" style={{'--reveal-delay':'.6s'}}><span className="play-ripple" aria-hidden="true" /></span>
       </button>
-      <More href="/about/" />
+      <More href="/about/" revealDelay=".7s" />
       <Sparks />
       {v && (
         <Modal title="LSK Tools factory video" close={() => V(false)} returnFocus={videoTrigger}>
@@ -353,7 +353,7 @@ function About() {
     </section>
   );
 }
-export function AnimatedFact({stat}) {
+export function AnimatedFact({stat,revealDelay}) {
   const ref = useRef(null);
   const [value, setValue] = useState(0);
   useEffect(() => {
@@ -374,7 +374,7 @@ export function AnimatedFact({stat}) {
     observer.observe(ref.current);
     return () => {observer.disconnect();clearInterval(timer);};
   }, [stat.value]);
-  return <div ref={ref}><b aria-label={String(stat.value) + (stat.suffix || '')}><span aria-hidden="true">{value.toLocaleString('en-US',{maximumFractionDigits:stat.decimals || 0})}{stat.suffix || ''}</span></b><span>{stat.label}</span></div>;
+  return <div ref={ref} className={revealDelay ? 'reveal home-reveal' : undefined} style={revealDelay ? {'--reveal-delay':revealDelay} : undefined}><b aria-label={String(stat.value) + (stat.suffix || '')}><span aria-hidden="true">{value.toLocaleString('en-US',{maximumFractionDigits:stat.decimals || 0})}{stat.suffix || ''}</span></b><span>{stat.label}</span></div>;
 }
 const features = [
   ["Customization", "Explore OEM options for your product range."],
@@ -495,10 +495,19 @@ function Footer() {
   );
 }
 export function News({ home = false, items = site.news }) {
+  const newsRef=useRef(null);
+  useEffect(()=>{
+    if(!home)return;
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+    }),{threshold:site.motion.revealThreshold});
+    newsRef.current.querySelectorAll('.reveal').forEach(element=>observer.observe(element));
+    return ()=>observer.disconnect();
+  },[home,items]);
   const entries = home ? items.slice(0, 6) : items;
-  const renderArticle = entry => <article key={entry.id}><time dateTime={entry.date}>{entry.date}</time><h3><a href={newsPath(entry)}>{entry.title}</a></h3><p>{entry.summary}</p>{home ? <a className="news-article-link" href={newsPath(entry)} aria-label={'Read article: '+entry.title}><Arrow/></a> : <More href={newsPath(entry)}>Read article</More>}</article>;
-  return <section className={home ? 'updates news-module' : 'catalog news-module'}>
-    <div className="news-heading"><em>Latest Updates</em><h2>What's <br/><strong>news</strong></h2>{home && <More href="/news/"/>}</div>
+  const renderArticle = entry => <article className={home ? 'reveal home-reveal' : undefined} style={home ? {'--reveal-delay':'.5s'} : undefined} key={entry.id}><time dateTime={entry.date}>{entry.date}</time><h3><a href={newsPath(entry)}>{entry.title}</a></h3><p>{entry.summary}</p>{home ? <a className="news-article-link" href={newsPath(entry)} aria-label={'Read article: '+entry.title}><Arrow/></a> : <More href={newsPath(entry)}>Read article</More>}</article>;
+  return <section ref={newsRef} className={home ? 'updates news-module' : 'catalog news-module'}>
+    <div className="news-heading"><em className={home ? 'reveal home-reveal' : undefined} style={{'--reveal-delay':'.3s'}}>Latest Updates</em><h2 className={home ? 'reveal home-reveal' : undefined} style={{'--reveal-delay':'.4s'}}>What's <br/><strong>news</strong></h2>{home && <More href="/news/" revealDelay=".6s"/>}</div>
     {entries.length ? home ? <SlidingRail items={entries} label="company news" className="news-rail" render={renderArticle}/> : <div className="news-list">{entries.map(renderArticle)}</div> : <div className="news-list"><article className="news-empty"><h3>Stay connected with LSK Tools</h3><p>Company updates will appear here when they are published.</p><More href="/contact/">Contact us</More></article></div>}
     {home && <Sparks/>}
   </section>;
@@ -527,7 +536,7 @@ function Home() {
               </a>
             ))}
           </div>
-          <More href="/product/" />
+          <More href="/product/" revealDelay=".8s" />
         </div>
       </section>
       <Carousel />
