@@ -67,3 +67,16 @@ Real company statistics, certificates, partner logos, news/history and contact d
 ## Latest motion updates
 
 Partners now use the source multirow carousel: three columns/two rows on desktop, two columns/one row below1000px, following the last duplicate Slick breakpoint. Hero and shared rails suspend autoplay while keyboard focus remains inside; leaving resumes unless explicitly paused. Home fallback product facts now use the same50-step/60ms entry counter as configured company statistics. Evidence: reports/partner-carousel-breakpoint-check.json, carousel-focus-check.json and home-product-counter-check.json. These named checks do not replace the consolidated visual audit.
+
+## Updates after the v5 source archive
+
+The v5 candidate is a historical snapshot at commit569b6ea. It does not include the changes below; export and independently verify a newer archive at final handoff.
+
+- Feature icons have the source's paired animated yellow dots. Feature columns, heading alignment, icon/text sizes and the1000px stacked layout were checked at1440,390,1000 and1001px (reports/feature-layout-check.json).
+- Home Popular, Features, About and News use the source's1.5s entry animations and per-element delays. The feature image zooms from0.3 scale; the video play entrance retains its centering transform. Reports: home-reveal-timing-check.json and lower-home-entry-check.json.
+- Counters respond to a live reduced-motion preference change and finish immediately, including counters still below the viewport (reports/reduced-motion-live-preference-check.json).
+- Search uses the source full white viewport and45% form position with200ms entrance. Live specification matching, GET catalogue submission, empty results and Escape focus return were checked (reports/search-fullscreen-check.json).
+- Desktop dropdowns now follow captured css-main.css lines110–208:180px white panel, yellow3px bottom border, top-origin rotation from-90deg,500ms transform and300ms opacity. Mouse hover and keyboard focus both reveal the menu; hidden menus are excluded from focus using visibility. Keyboard subitems use the dark hover treatment. Reduced motion removes transitions. Evidence: reports/navigation-dropdown-check.json and reference/captures/navigation-flip-desktop.png.
+- At390px, opening search from the mobile drawer clears the drawer shift, focuses the search input and retains scroll lock; closing returns focus to Open navigation and restores scrolling, with no horizontal overflow (same navigation report).
+
+The latest live-source navigation attempt timed out on both initial navigation and inspection of that same tab. This is an observation failure, not proof that the source site is down. The dropdown comparison above uses retained source CSS and a locally rendered browser result. A fresh matched-viewport live-source visual comparison remains unverified.
