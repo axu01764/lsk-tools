@@ -1,5 +1,11 @@
 # LSK Tools
 
+Website: https://lsk-tools.vercel.app/
+
+Repository: https://github.com/axu01764/lsk-tools
+
+The Vercel project is connected to this repository. Pushes to `main` trigger production deployments.
+
 English frontend template built with React and Vite. Includes responsive product/category pages, product image zoom, factory video, company pages, configurable news and FAQ, yellow paint styling and transparent AI product images.
 
 ## Development

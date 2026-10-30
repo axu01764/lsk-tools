@@ -1,6 +1,6 @@
 {
   "brand": { "name": "LSK Tools", "logo": "/media/logo-transparent.png" },
-  "publicUrl": "",
+  "publicUrl": "https://lsk-tools.vercel.app/",
   "innerBannerBackground": "/media/hero-workshop-v1.png",
   "motion": {
     "autoplayMs": 5000,
