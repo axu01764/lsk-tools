@@ -403,13 +403,13 @@ function Feature({ i }) {
     </article>
   );
 }
-function Form({expanded = false, productName = '', company = false, question=false}) {
+function Form({expanded = false, productName = '', company = false, question=false, compact=false}) {
   const enquiryProduct=productName || new URLSearchParams(location.search).get('product') || '';
   const [status, S] = useState("");
   const [downloadUrl,setDownloadUrl] = useState(null);
   useEffect(() => () => {if(downloadUrl) URL.revokeObjectURL(downloadUrl);},[downloadUrl]);
   return (
-    <form className={expanded ? 'enquiry-expanded' : undefined} aria-label={question?'Question enquiry':undefined}
+    <form className={expanded ? 'enquiry-expanded' : compact ? 'enquiry-compact' : undefined} aria-label={question?'Question enquiry':undefined}
       onSubmit={(e) => {
         e.preventDefault();
         const data = Object.fromEntries(new FormData(e.currentTarget));
@@ -446,11 +446,11 @@ function Form({expanded = false, productName = '', company = false, question=fal
         placeholder={question?'Your question*':'Products and quantities*'}
         defaultValue={enquiryProduct ? 'I am interested in ' + enquiryProduct + '.\nQuantity: ' : ''}
       />
-      <button type="submit">
-        DOWNLOAD ENQUIRY <Arrow />
+      <button type="submit" aria-label={compact ? 'Download enquiry file' : undefined} title={compact ? 'Download enquiry file' : undefined}>
+        {!compact && 'DOWNLOAD ENQUIRY '}<Arrow />
       </button>
       <small>
-        This preview downloads your enquiry. Online sending is not connected.
+        {compact ? 'Download enquiry file. Not sent online.' : 'This preview downloads your enquiry. Online sending is not connected.'}
       </small>
       <p role="status">{status}</p>
       {downloadUrl && <a className="enquiry-download" href={downloadUrl} download="lsk-tools-enquiry.json">Download enquiry file again</a>}
@@ -462,7 +462,7 @@ function Footer() {
     <footer>
       <div>
         <Logo />
-        <Form />
+        <Form compact />
       </div>
       <div>
         <h3>QUICK LINKS</h3>

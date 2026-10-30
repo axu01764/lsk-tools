@@ -1851,6 +1851,19 @@ dialog.navigation-drawer::backdrop{background:#0003;}.navigation-drawer.is-closi
 @media(max-width:1000px){.page-title-content{top:20%;zoom:.8;padding:0 15px;}}
 @media(max-width:500px){.page-title h1{font-size:22px;}}
 
+/* Compact footer enquiry follows the reference's 42px fields and inline action. */
+.enquiry-compact{display:grid;grid-template-columns:minmax(0,1fr);row-gap:8px;}
+.enquiry-compact .form-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;grid-row:1;}
+.enquiry-compact input,.enquiry-compact textarea{height:42px;min-height:42px;margin:0;padding:0 12px;line-height:42px;font-size:14px;}
+.enquiry-compact>input{grid-row:2;}
+.enquiry-compact textarea{grid-row:3;grid-column:1;padding-right:54px;}
+.enquiry-compact button{grid-row:3;grid-column:1;align-self:start;justify-self:end;width:42px;height:42px;padding:0;display:grid;place-items:center;z-index:1;}
+.enquiry-compact button .arrow{width:24px;height:auto;margin:0;filter:brightness(0);}
+.enquiry-compact small{grid-row:4;margin:0;line-height:18px;}
+.enquiry-compact [role="status"]{margin:0;}
+.enquiry-compact [role="status"]:empty{display:none;}
+@media(min-width:701px){footer{padding-top:60px;row-gap:40px;}footer .copyright{margin:0;padding:0;border:0;line-height:28px;}}
+
 /* The reference footer's right-hand QR/share column. */
 footer{position:relative;isolation:isolate;overflow:hidden;grid-template-columns:1.3fr .7fr .9fr 1fr 1fr;gap:28px;}
 footer::before{content:'';position:absolute;z-index:-1;right:0;bottom:0;width:35%;height:100%;background:#ffbc06;clip-path:polygon(32% 0,100% 0,100% 100%,0 100%);}
