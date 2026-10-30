@@ -11,6 +11,7 @@ export default function SlidingRail({items, render, className='', label, arrows=
   const [position, setPosition] = useState(count+initialIndex);
   const [moving, setMoving] = useState(false);
   const [paused, setPaused] = useState(initialPaused);
+  const [focusWithin, setFocusWithin] = useState(false);
   const [reduced, setReduced] = useState(() => matchMedia('(prefers-reduced-motion: reduce)').matches);
   const navigation = useRef(null);
   const navigationButtons = useRef([]);
@@ -50,13 +51,15 @@ export default function SlidingRail({items, render, className='', label, arrows=
     if (button && container) container.scrollTo(verticalNavigation?{top:button.offsetTop-container.offsetTop-(container.clientHeight-button.clientHeight)/2,behavior:reduced?'instant':'smooth'}:{left:button.offsetLeft-container.offsetLeft-(container.clientWidth-button.clientWidth)/2,behavior:reduced?'instant':'smooth'});
   },[activeIndex,visible,reduced,verticalNavigation]);
   useEffect(() => {
-    if (!loop || paused || pausedOverride || reduced) return;
+    if (!loop || paused || pausedOverride || reduced || focusWithin) return;
     const interval = setInterval(() => move(1), site.motion.autoplayMs);
     return () => clearInterval(interval);
-  }, [loop, count, paused,pausedOverride,reduced]);
+  }, [loop, count, paused,pausedOverride,reduced,focusWithin]);
   useEffect(() => () => clearTimeout(timer.current), []);
   const copies = loop ? [...items,...items,...items] : items;
   return <section className={'sliding-rail '+className} aria-label={label} tabIndex={0}
+    onFocusCapture={()=>setFocusWithin(true)}
+    onBlurCapture={event=>{if(!event.currentTarget.contains(event.relatedTarget))setFocusWithin(false);}}
     onKeyDown={event => {if(event.key === 'ArrowLeft' || event.key === 'ArrowRight'){event.preventDefault();move(event.key === 'ArrowLeft' ? -1 : 1);}}}
     onTouchStart={event => {touch.current = event.touches.length===1 ? [event.touches[0].clientX,event.touches[0].clientY] : null;}}
     onTouchCancel={()=>{touch.current=null;}}

@@ -20,6 +20,7 @@ Edit `src/site-config.json`:
 - `hero`: ordered slides with `title`, `description`, and an existing product `productId`.
 - `motion.autoplayMs`: hero and product rotation interval. Fewer than two slides does not create a timer.
 - Product/news sliding rails expose Pause/Resume controls when their content exceeds the visible count. Inactive loop copies are inert. Mobile shows one card, desktop two. Manual controls remain available while autoplay is paused.
+- Hero and shared rails also suspend autoplay while keyboard focus is inside them, matching the source's pauseOnFocus behavior. Leaving the carousel resumes autoplay unless the user has explicitly paused it, a parent has paused it, or reduced motion is enabled. Focus changes do not overwrite the explicit Pause/Resume selection.
 - `motion.transitionMs`: hero fade, hero entrance, and scroll reveal duration.
 - `motion.stickyAfterPx`: sticky header threshold.
 - `motion.revealThreshold`: intersection ratio for section reveal and company counters.

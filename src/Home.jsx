@@ -226,13 +226,16 @@ function Sparks() {
 }
 function Hero() {
   const [paused,setPaused]=useState(false);
-  const [i, S] = useAuto(site.hero.length,paused),
+  const [focusWithin,setFocusWithin]=useState(false);
+  const [i, S] = useAuto(site.hero.length,paused || focusWithin),
     touch = useRef(null);
   return (
     <section
       className="hero"
       style={{'--hero-backdrop':`url("${site.heroBackground || '/media/hero-workshop-v1.png'}")`}}
       role="region" aria-roledescription="carousel" aria-label="Featured products" tabIndex={0}
+      onFocusCapture={()=>setFocusWithin(true)}
+      onBlurCapture={event=>{if(!event.currentTarget.contains(event.relatedTarget))setFocusWithin(false);}}
       onKeyDown={event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();S(index=>(index+(event.key==='ArrowRight'?1:site.hero.length-1))%site.hero.length);}}}
       onTouchStart={event=>{touch.current=event.touches.length===1?{x:event.touches[0].clientX,y:event.touches[0].clientY}:null;}}
       onTouchCancel={()=>{touch.current=null;}}
