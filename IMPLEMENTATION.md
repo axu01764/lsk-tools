@@ -4,9 +4,9 @@ Status: in progress; full reference fidelity and final handoff have not been app
 
 ## Run and check
 
-Run from the prototype directory with Node20 or later:
+Run from the prototype directory with Node22.12+ or Node24 (the production runtime):
 
-- npm install
+- npm ci
 - npm run dev -- --host 127.0.0.1 --port 4173 --strictPort
 - npm run build
 - npm test
@@ -45,7 +45,13 @@ Home social sharing is restored from the captured source #banner .share: three32
 
 Shared interior banner now follows the measured English source ratio1914:626: desktop navigation overlays the image (1440px header60px/top10px), title begins at50% height; mobile banner sits below40px navigation with content at20% and0.8 scale. Source measurements: reports/source-inner-banner.json. Local factory/product/privacy/contact checks: reports/interior-banner-check.json. Desktop sticky navigation checked at scroll787px: top0/height60px/dark background. Images are configurable through innerBannerBackground and reuse the AI illustration. The v3 portable candidate predates this banner change and must be refreshed at final handoff.
 
-npm test currently runs15 tests covering exact routes, new configured categories, pagination boundaries/query URLs, specification matching and hosting fallback. npm run audit:content checks configured asset existence, JSON/capacity links and product/category routes, plus duplicate/colliding IDs. Latest report: reports/content-audit.json. This audit does not crawl rendered links or validate arbitrary JSX/CSS resources and is not a visual-fidelity proof.
+npm test currently runs18 tests covering exact routes, new configured categories, pagination boundaries/query URLs, specification matching, hosting fallback, public URLs and QR failure handling. npm run audit:content checks configured asset existence, JSON/capacity links and product/category routes, plus duplicate/colliding IDs. Latest report: reports/content-audit.json. This audit does not crawl rendered links or validate arbitrary JSX/CSS resources and is not a visual-fidelity proof.
+
+## Deployment and latest template changes
+
+Repository: https://github.com/axu01764/lsk-tools (main). Production: https://lsk-tools.vercel.app/. Vercel is connected to GitHub and uses Node24, npm ci, npm run build and dist/client. Deep-link rewrites exclude asset and API namespaces. publicUrl is set to the production homepage for QR and sharing; change it when reusing the template for another site. Environment files and local deployment credentials are excluded.
+
+Footer enquiry now uses the reference's 42px fields and inline action, preserving its explicit download-only behavior. At 1440px the measured footer is453px high (source462px); desktop and390px mobile show no horizontal overflow. The populated home-news template uses arrow article links, reference typography and a light Read More button. Six development articles verified pause/keyboard navigation, two visible desktop cards and one mobile card. Six sample partner cards verified responsive layout. QA fixtures remain local and are excluded from builds and deployment. These checks cover the named components, not complete site fidelity.
 
 Browser evidence includes desktop and390px mobile checks, multi-image/gallery fixtures, multiple rail breakpoints, lightboxes, focus return, video, search and list navigation. Test pages ending -preview.html are development-only entry points and are not included by the default production build.
 
