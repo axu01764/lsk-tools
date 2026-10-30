@@ -392,7 +392,7 @@ const features = [
 ];
 function Feature({ i }) {
   return (
-    <article className="feature reveal">
+    <article className="feature reveal home-reveal" style={{'--reveal-delay': (0.5 + i / 10).toFixed(1)+'s'}}>
       <h3>
         <span className="feature-icon" aria-hidden="true"><img src={"/design/images/int-4-" + (i + 1) + ".png"} alt="" /></span>
         {features[i][0]}
@@ -511,17 +511,17 @@ function Home() {
         <div className="popular-visual">
           <img src={products[1].image} alt="Cordless drill" />
         </div>
-        <div className="popular-copy reveal">
-          <h2>
+        <div className="popular-copy">
+          <h2 className="reveal home-reveal" style={{'--reveal-delay':'.3s'}}>
             <strong>Popular</strong> products
           </h2>
-          <p>Discover the LSK Tools power tool range.</p>
+          <p className="reveal home-reveal" style={{'--reveal-delay':'.4s'}}>Discover the LSK Tools power tool range.</p>
           <div className="categories">
             {[
               ["Cordless Drills", 1],
               ["Impact Wrenches", 4],
-            ].map(([n, i]) => (
-              <a href={productCategoryPath(n)} key={n}>
+            ].map(([n, i], index) => (
+              <a className="reveal home-reveal" style={{'--reveal-delay':(0.5+index/10).toFixed(1)+'s'}} href={productCategoryPath(n)} key={n}>
                 <img src={"/design/images/icon-1-" + i + ".png"} alt="" />
                 {n}
               </a>
@@ -533,9 +533,9 @@ function Home() {
       <Carousel />
       <About />
       <section className="features">
-        <div className="section-heading reveal">
-          <em>Why Choose Us</em>
-          <h2>
+        <div className="section-heading">
+          <em className="reveal home-reveal" style={{'--reveal-delay':'.3s'}}>Why Choose Us</em>
+          <h2 className="reveal home-reveal" style={{'--reveal-delay':'.4s'}}>
             What sets us <strong>apart</strong>
           </h2>
         </div>
@@ -546,7 +546,8 @@ function Home() {
             ))}
           </div>
           <img
-            className="feature-product"
+            className="feature-product reveal home-reveal home-reveal-zoom"
+            style={{'--reveal-delay':'1.2s'}}
             src={products[1].image}
             alt="LSK Tools cordless drill"
           />

@@ -1951,3 +1951,11 @@ footer .footer-connect{min-width:0;text-align:center;padding-left:15px;}
 }
 @media(max-width:700px){.features .section-heading{display:block;text-align:left;}}
 @media(max-width:500px){.features{padding-bottom:20px;}.features .section-heading{margin-bottom:30px;}}
+
+/* Source WOW entry timing; keep the observed element in its layout position
+   until IntersectionObserver starts the one-time animation. */
+.home-reveal{transform:none;transition:none;}
+.home-reveal.visible{animation:home-fade-up 1.5s ease var(--reveal-delay,0s) both;}
+.home-reveal-zoom.visible{animation-name:home-zoom-in;}
+@keyframes home-fade-up{from{opacity:0;transform:translate3d(0,100%,0);}to{opacity:1;transform:none;}}
+@keyframes home-zoom-in{from{opacity:0;transform:scale3d(.3,.3,.3);}50%{opacity:1;}to{opacity:1;transform:none;}}
