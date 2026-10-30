@@ -80,3 +80,9 @@ The v5 candidate is a historical snapshot at commit569b6ea. It does not include 
 - At390px, opening search from the mobile drawer clears the drawer shift, focuses the search input and retains scroll lock; closing returns focus to Open navigation and restores scrolling, with no horizontal overflow (same navigation report).
 
 The latest live-source navigation attempt timed out on both initial navigation and inspection of that same tab. This is an observation failure, not proof that the source site is down. The dropdown comparison above uses retained source CSS and a locally rendered browser result. A fresh matched-viewport live-source visual comparison remains unverified.
+
+## Latest package and hero entry pass
+
+The independently verified v6 candidate exports commit e58ed7f9ab219b0ebc10e39678cdd61bc4b5521a. Its external package-verification-v6.json records107 source/asset hashes, successful install/build,18 passing tests, content and route checks,54 HTTP-served asset hashes, and a desktop search-to-product/mobile lightbox browser check. This is a runnable source snapshot, not final reference fidelity acceptance.
+
+The following hero change is newer than v6: title and description now animate separately with the source's .6s and .7s delays, using a100% vertical fade entrance; the product uses the .9s zoom entrance from0.3 scale; the paint layer fades in after .3s. All use1.5s duration by default. The copy wrapper no longer adds a second transform. Browser-computed timings, both slide states, reduced-motion visibility and390px mobile layout are recorded in reports/hero-separate-entry-check.json. The mobile source behavior still hides the product and paint layers at the existing breakpoint. This check does not establish frame-by-frame equality with a live reference recording.
