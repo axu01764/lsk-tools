@@ -577,6 +577,18 @@ nav {
   height: 70px;
   object-fit: contain;
 }
+.feature-icon { position:relative;display:inline-flex;flex-shrink:0;isolation:isolate; }
+.feature-icon::before,.feature-icon::after {
+  content:"";position:absolute;z-index:-1;width:32px;height:32px;border-radius:50%;background:var(--yellow);
+  animation:feature-dot-pulse 2s linear infinite alternate;
+}
+.feature-icon::after {left:-15px;bottom:-15px;}
+.feature-icon::before {right:-15px;top:-15px;animation-direction:alternate-reverse;}
+.feature:nth-child(even) .feature-icon::after {bottom:auto;top:-15px;}
+.feature:nth-child(even) .feature-icon::before {top:auto;bottom:-15px;}
+@keyframes feature-dot-pulse {from{transform:scale(1);}to{transform:scale(.3);}}
+@media(max-width:1250px){.feature-icon::before,.feature-icon::after{width:24px;height:24px;}}
+@media(prefers-reduced-motion:reduce){.feature-icon::before,.feature-icon::after{animation:none;}.feature-icon::before{transform:scale(.3);}}
 .feature p {
   color: #666;
   line-height: 2;

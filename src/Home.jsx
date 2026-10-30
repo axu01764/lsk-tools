@@ -394,7 +394,7 @@ function Feature({ i }) {
   return (
     <article className="feature reveal">
       <h3>
-        <img src={"/design/images/int-4-" + (i + 1) + ".png"} alt="" />
+        <span className="feature-icon" aria-hidden="true"><img src={"/design/images/int-4-" + (i + 1) + ".png"} alt="" /></span>
         {features[i][0]}
       </h3>
       <p>{features[i][1]}</p>
