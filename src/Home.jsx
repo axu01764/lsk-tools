@@ -327,16 +327,11 @@ function About() {
           video.
         </p>
         <div className="facts">
-          {site.companyStats.length ? site.companyStats.map(stat => <AnimatedFact key={stat.label} stat={stat}/>) : [
-            ["12V", "COMPACT DRILLS"],
-            ["21V", "CORDLESS RANGE"],
-            ["550 N·m", "IMPACT WRENCH"],
-          ].map(([n, t]) => (
-            <div key={n}>
-              <b>{n}</b>
-              <span>{t}</span>
-            </div>
-          ))}
+          {(site.companyStats.length ? site.companyStats : [
+            {value:12,suffix:'V',label:'COMPACT DRILLS'},
+            {value:21,suffix:'V',label:'CORDLESS RANGE'},
+            {value:550,suffix:' N·m',label:'IMPACT WRENCH'},
+          ]).map(stat => <AnimatedFact key={stat.label} stat={stat}/>)}
         </div>
       </div>
       <button

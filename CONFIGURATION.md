@@ -25,7 +25,7 @@ Edit `src/site-config.json`:
 - `motion.stickyAfterPx`: sticky header threshold.
 - `motion.revealThreshold`: intersection ratio for section reveal and company counters.
 - `motion.productMaskMs`, `productTextDelayMs`, `productImageDelayMs`: product-card background duration and text/image entrance delays.
-- `companyStats`: optional entries `{ "value": 25, "label": "EXAMPLE ONLY", "suffix": "+", "decimals": 0 }`. Only add verified company facts. Counters start once on entering view, in 50 steps of 60 ms. Reduced motion displays the final value immediately. The distributed array is empty and the page instead displays product voltage/torque facts.
+- `companyStats`: optional entries `{ "value": 25, "label": "EXAMPLE ONLY", "suffix": "+", "decimals": 0 }`. Only add verified company facts. Counters start once on entering view, in 50 steps of 60 ms. Reduced motion displays the final value immediately. The distributed array is empty and the page instead animates the existing product voltage/torque facts (12V,21V,550 N·m) using the same counter. These fallback values describe the supplied sample products; review them if replacing that product range.
 - `partners`: optional `{ "name": "Partner name", "logo": "/media/partner.png", "href": "https://example.com" }` entries. Add only authorized partner marks; distributed array is empty.
 - `news`: entries with `id`, ISO `date`, `title`, `summary`, and `body` (plain paragraph strings). Home shows up to six entries; `/news/` lists all, and `/news/<id>/` shows an article. No company news is fabricated.
 - `video.src`, `video.poster`: factory video and cover image.
