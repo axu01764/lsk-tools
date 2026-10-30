@@ -359,9 +359,10 @@ export function AnimatedFact({stat,revealDelay}) {
   useEffect(() => {
     const target = Number(stat.value);
     if (!Number.isFinite(target)) return;
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {setValue(target); return;}
+    const media = matchMedia('(prefers-reduced-motion: reduce)');
     let timer;
     const observer = new IntersectionObserver(entries => {
+      if (media.matches) return;
       if (!entries.some(entry => entry.isIntersecting)) return;
       observer.disconnect();
       let step = 0;
@@ -371,8 +372,11 @@ export function AnimatedFact({stat,revealDelay}) {
         if (step >= 50) clearInterval(timer);
       }, 60);
     }, {threshold: site.motion.revealThreshold});
-    observer.observe(ref.current);
-    return () => {observer.disconnect();clearInterval(timer);};
+    const finish = () => {observer.disconnect();clearInterval(timer);setValue(target);};
+    const preferenceChanged = () => {if(media.matches)finish();};
+    media.addEventListener('change',preferenceChanged);
+    if(media.matches)finish();else observer.observe(ref.current);
+    return () => {observer.disconnect();clearInterval(timer);media.removeEventListener('change',preferenceChanged);};
   }, [stat.value]);
   return <div ref={ref} className={revealDelay ? 'reveal home-reveal' : undefined} style={revealDelay ? {'--reveal-delay':revealDelay} : undefined}><b aria-label={String(stat.value) + (stat.suffix || '')}><span aria-hidden="true">{value.toLocaleString('en-US',{maximumFractionDigits:stat.decimals || 0})}{stat.suffix || ''}</span></b><span>{stat.label}</span></div>;
 }
