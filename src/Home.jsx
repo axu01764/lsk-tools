@@ -564,12 +564,15 @@ function Home() {
     </>
   );
 }
+const partnerRailResponsive = [{breakpoint:1000,slidesToShow:2}];
 export function PartnersSection({items=site.partners}) {
+  const columns=[];
+  for(let index=0;index<items.length;index+=2) columns.push(items.slice(index,index+2));
   return <section className="partners"><div className="partners-copy">
     <em>Build your next product range</em><h2>Partners</h2>
     <p>Looking for tools for your business? Browse our catalogue and prepare a product enquiry.</p>
     <More href="/contact/">Contact us</More>
-  </div>{items.length>0 && <div className="partner-cards">{items.map(partner=><a key={partner.name} href={partner.href || '/contact/'}><img src={partner.logo} alt={partner.name} loading="lazy"/></a>)}</div>}</section>;
+  </div>{items.length>0 && <SlidingRail items={columns} label="partners" className="partner-carousel" slidesToShow={3} responsive={partnerRailResponsive} render={column=><div className="partner-column">{column.map(partner=><a key={partner.name} href={partner.href || '/contact/'}><img src={partner.logo} alt={partner.name} loading="lazy"/></a>)}</div>}/>}</section>;
 }
 export function ProductPage({product}) {
   const [search,setSearch]=useState('');

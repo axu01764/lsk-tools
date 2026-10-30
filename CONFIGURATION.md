@@ -12,6 +12,8 @@ Run `npm install`, then `npm run dev -- --host 127.0.0.1 --port 4173 --strictPor
 
 ## Site settings
 
+Homepage partner entries are grouped into two-row columns and use the shared sliding rail: three columns on desktop, two below1000px. More entries than fit rotate automatically using the configured motion timing; Pause/Resume, keyboard navigation and touch swiping remain available. Empty partner data keeps the existing invitation without sample logos. The captured source repeats its1000px breakpoint with conflicting row counts, so mobile row parity remains a live-reference audit item.
+
 Edit `src/site-config.json`:
 
 - `brand.logo`: local logo URL; `brand.name`: logo alternative text. Visible editorial copy still uses LSK Tools and should be reviewed when rebranding.
