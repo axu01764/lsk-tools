@@ -1,11 +1,7 @@
-import React, {useMemo} from 'react';
-import {websiteQrDataUrl} from './website-qr.js';
-import {resolvePublicUrl} from './public-url.js';
+import React from 'react';
 import site from './site-config.json';
 import HeroShare from './HeroShare.jsx';
 
 export default function FooterConnect() {
-  const url=resolvePublicUrl(site.publicUrl,`${window.location.origin}/`);
-  const image=useMemo(()=>websiteQrDataUrl(url),[url]);
-  return <div className="footer-connect"><h3>{image?'QR CODE':'WEBSITE'}<small>{image?'Scan our website':'Visit our website'}</small></h3><a className="footer-qr" href={url} aria-label="Open LSK Tools website">{image?<img src={image} alt="QR code for the LSK Tools website" width="180" height="180"/>:'Open website'}</a><HeroShare className="footer-share"/></div>;
+  return <div className="footer-connect"><h3>WHATSAPP<small>Scan to chat with us</small></h3><a className="footer-qr" href={site.social.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Chat with LSK Tools on WhatsApp"><img src={site.social.whatsappQr} alt="LSK Tools WhatsApp QR code" width="180" height="180"/></a><HeroShare className="footer-share"/></div>;
 }

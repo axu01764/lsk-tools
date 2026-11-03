@@ -26,7 +26,7 @@ const nav = [
   ["About Us", "/about/"],
   ["Product", "/product/"],
   ["Capacity", "/capacity/"],
-  ["News", "/news/"],
+  ["WhatsApp", site.social.whatsapp],
   ["Contact Us", "/contact/"],
 ];
 const children = {

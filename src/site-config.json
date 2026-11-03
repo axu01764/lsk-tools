@@ -1,5 +1,8 @@
 {
-  "brand": { "name": "LSK Tools", "logo": "/media/logo-transparent.png" },
+  "brand": {
+    "name": "LSK Tools",
+    "logo": "/media/logo-transparent.png"
+  },
   "publicUrl": "https://lsk-tools.vercel.app/",
   "innerBannerBackground": "/media/hero-workshop-v1.png",
   "motion": {
@@ -29,6 +32,20 @@
   "certificates": [],
   "news": [],
   "partners": [],
-  "contact": { "mode": "download", "endpoint": null, "address": "", "departments": [], "mapEmbedUrl": "" },
-  "video": { "src": "/media/factory.mp4", "poster": "/media/factory-gallery/frame-20.jpg" }
+  "contact": {
+    "mode": "download",
+    "endpoint": null,
+    "address": "",
+    "departments": [],
+    "mapEmbedUrl": ""
+  },
+  "video": {
+    "src": "/media/factory.mp4",
+    "poster": "/media/factory-gallery/frame-20.jpg"
+  },
+  "social": {
+    "whatsapp": "https://wa.me/8615571870062",
+    "facebook": "https://www.facebook.com/AdPilotTest",
+    "whatsappQr": "/media/whatsapp-qr.png"
+  }
 }
